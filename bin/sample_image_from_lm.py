@@ -30,11 +30,11 @@ def sample(lm, n):
 
 
 if __name__ == '__main__':
-    lm = kenlm.Model("../out/kenlm/mnist_binarized_n60.klm")
     n = 60
+    lm = kenlm.Model("../out/kenlm/mnist_binarized_n%s.klm" % n)
 
     samples = []
-    for i in tqdm(range(500)):
+    for i in tqdm(range(1000)):
         s = sample(lm, n)
         score = lm.score(s, bos=False, eos=False)
         samples.append((s, score))
