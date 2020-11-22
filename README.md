@@ -22,7 +22,8 @@ Score an MNIST image and an image randomly sampled from the space of binary-valu
 ```
 $ python bin/score_image_with_lm.py
 ```
-The MNIST image should have a score of ~-50 while the random image should have a score of ~-425, as one would expect.
+The MNIST image should have a score of ~-50 while the random image should have a score of ~-425. The MNIST image has a 
+higher score, and is thus more probable, according to the model, as one would expect.
 
 Plot a histogram of the scores for all images of the MNIST dataset:
 ```
@@ -47,5 +48,7 @@ $ python bin/sample_image_from_lm.py
 
 Clearly, the generated images are not very faithful representatives of the MNIST images. There are some hints of 
 structure in the generated samples, and some arguably contain discernible digits. But trying to model the digits in the 
-full 784-dimensional space in which they are embedded appears to be yield inferior results. Indeed, attempting to 
-model a lower-dimensional manifold on which the digits reside would be more fruitful.
+full 784-dimensional space in which they are embedded appears to yield inferior results. A 60-gram n-gram language model 
+was required to achieve even these results. It seems that an impractically larger model would be required to obtain 
+better results. Indeed, attempting to model a lower-dimensional manifold on which the digits reside would be more 
+fruitful.
