@@ -46,11 +46,12 @@ def sample(lm, n):
 
 
 if __name__ == '__main__':
-    n = 50
+    n = 90
+    num_samples = 5000
     lm = kenlm.Model("../out/kenlm/mnist_3_reduced_binarized_n%s.klm" % n)
 
     samples = []
-    for i in tqdm(range(5000)):
+    for i in tqdm(range(num_samples)):
         s = sample(lm, n)
         score = lm.score(s, bos=False, eos=False)
         samples.append((s, score))
